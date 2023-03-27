@@ -2,7 +2,7 @@ package ru.netology;
 
 public class MovieManager {
 
-    private String[] movies = new String[0];
+    private String[] movies = new String[0];  // изначально у нас в массиве 0 ячеек и добавить мы туда ничего не можем
     private int limit;
 
     public MovieManager() {
@@ -14,13 +14,13 @@ public class MovieManager {
 
     }
 
-    public void add(String movie) {
-        String[] tmp = new String[movies.length + 1];
-        for (int i = 0; i < movies.length; i++) {
-            tmp[i] = movies[i];
+    public void add(String movie) {     //поэтому в методе add  создаем временный массив tmp с длинной на одну ячейку больше чем в массиве movies
+        String[] tmp = new String[movies.length + 1];    //вот он временный массив, его длина равна 1, так как мы к 0 прибавили 1( movies = 0)
+        for (int i = 0; i < movies.length; i++) {     //это цикл. В массивах ячейки нумеруются с 0, поэтому первая ячейка имеет порядк.номер 0
+            tmp[i] = movies[i];   //цикл работает пока i<длины массива movies(0). То есть цикл на первом витке останавливается и мы из него выходим.
         }
-        tmp[tmp.length - 1] = movie;
-        movies = tmp;
+        tmp[tmp.length - 1] = movie; // присваиваем ячейке массива tmp определенный фильм movie
+        movies = tmp;  // присваиваем массиву movies значение массива tmp
     }
 
     public String[] findAll() {
